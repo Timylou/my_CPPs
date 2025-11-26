@@ -1,7 +1,7 @@
 NAME	=	account
 
-CC	=	c++
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
+CXX	=	c++
+CXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
 
 SRC	=	tests.cpp Account.cpp
 OBJ	=	$(SRC:.cpp=.o)
@@ -9,10 +9,10 @@ OBJ	=	$(SRC:.cpp=.o)
 all	:	$(NAME)
 
 $(NAME)	:	$(OBJ)
-	$(CC) $^ -o $@
+	$(CXX) $^ -o $@
 
 $(OBJ)	:	$(SRC)
-	$(CC) $(CFLAGS) $^ -c
+	$(CXX) $(CXFLAGS) $^ -c
 
 clean	:
 	rm -f $(OBJ)

@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-mens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 10:51:37 by yel-mens          #+#    #+#             */
-/*   Updated: 2025/11/18 15:34:15 by yel-mens         ###   ########.fr       */
+/*   Created: 2025/11/24 19:21:08 by yel-mens          #+#    #+#             */
+/*   Updated: 2025/11/24 19:21:09 by yel-mens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
-# include <iostream>
+#include "Fixed.hpp"
+#include <iostream>
 
-class Contact
+void	getAll(Fixed &a, Fixed &b, Fixed &c)
 {
-	private	:
-		char	firstname[11];
-		char	lastname[11];
-		char	nickname[11];
-		char	phonenumber[11];
-		char	secret[11];
-		int		index;
+	std::cout << "a : " << a.getRawBits() << std::endl
+			  << "b : " << b.getRawBits() << std::endl
+			  << "c : " << c.getRawBits() << std::endl;
+}
 
-		void	setArray(char array[11], const char *name);
+int	main(void)
+{
+	Fixed	a;
+	Fixed	b(a);
+	Fixed	c;
 
-	public	:
-		Contact(void);
-		
-		void	newContact(int index);
-		void	printSummary(void);
-		void	print(void);
-};
+	getAll(a, b, c);
+	
+	a.setRawBits(12);
+	c = a;
 
-#endif
+	std::cout << std::endl;
+	getAll(a, b, c);
+	return (0);
+}

@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include <cstdlib>
+#include <iomanip>
 
 Contact::Contact(void)
 {
@@ -32,7 +34,9 @@ void	Contact::setArray(char array[11], const char *name)
 	{
 		std::cout << name << " : ";
 		std::getline(std::cin, line);
-		if (line.size() == 0)
+		if (std::cin.eof())
+			std::exit(0);
+		else if (line.size() == 0)
 			std::cout << "A saved contact can't have empty fields" << std::endl;
 		else
 			i = 0;
@@ -55,6 +59,17 @@ void	Contact::newContact(int index)
 	setArray(phonenumber, "phone number");
 	setArray(secret, "darkest secret");
 	this->index = index;
+}
+
+void	Contact::printSummary(void)
+{
+	if (this->index < 0)
+		return ;
+	std::cout << "|" << std::setw(10) << index
+			  << "|" << std::setw(10) << this->firstname
+			  << "|" << std::setw(10) << this->lastname
+			  << "|" << std::setw(10) << this->nickname
+			  << "|" << std::endl;
 }
 
 void	Contact::print(void)

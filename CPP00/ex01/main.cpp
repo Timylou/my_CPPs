@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
+#include <limits>
 
 int	main(void)
 {
@@ -23,7 +24,9 @@ int	main(void)
 	{
 		std::cout << "input : ";
 		std::getline(std::cin, input);
-		if (input == "ADD")
+		if (std::cin.eof())
+			break ;
+		else if (input == "ADD")
 			phonebook.add();
 		else if (input == "SEARCH")
 			phonebook.search();

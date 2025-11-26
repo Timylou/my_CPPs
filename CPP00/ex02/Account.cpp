@@ -22,7 +22,7 @@ int	Account::_totalNbWithdrawals = 0;
 Account::Account(int initial_deposit)
 {
 	_accountIndex = Account::getNbAccounts();
-	_amount += initial_deposit;
+	_amount = initial_deposit;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
 	
@@ -38,7 +38,7 @@ Account::Account(int initial_deposit)
 Account::Account(void)
 {
 	_accountIndex = Account::getNbAccounts();
-	_amount += 0;
+	_amount = 0;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
 	
