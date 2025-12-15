@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-mens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 14:17:25 by yel-mens          #+#    #+#             */
-/*   Updated: 2025/12/01 14:17:26 by yel-mens         ###   ########.fr       */
+/*   Created: 2025/12/02 18:01:50 by yel-mens          #+#    #+#             */
+/*   Updated: 2025/12/02 18:01:52 by yel-mens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_HPP
-# define POINT_HPP
-# include "Fixed.hpp"
+#include "ClapTrap.hpp"
 
-class Point
+int	main(void)
 {
-	private	:
-		const Fixed	_x;
-		const Fixed	_y;
+	ClapTrap	Garen("Garen");
+	ClapTrap	Darius("Darius");
+	ClapTrap	Nameless;
 
-	public	:
-		Point(void);
-		Point(const float x, const float y);
-		Point(const Point &other);
-		Point	&operator=(const Point &other);
-		~Point(void);
-};
-
-bool	bsp( Point const a, Point const b, Point const c, Point const point);
-
-#endif
+	std::cout << std::endl;
+	Garen.attack("Darius");
+	Darius.takeDamage(0);
+	std::cout << std::endl;
+	Nameless.attack("Darius");
+	Darius.takeDamage(0);
+	std::cout << std::endl;
+}

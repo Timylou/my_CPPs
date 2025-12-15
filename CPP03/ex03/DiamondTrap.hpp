@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.hpp                                          :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-mens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 14:17:25 by yel-mens          #+#    #+#             */
-/*   Updated: 2025/12/01 14:17:26 by yel-mens         ###   ########.fr       */
+/*   Created: 2025/12/03 16:36:50 by yel-mens          #+#    #+#             */
+/*   Updated: 2025/12/03 16:36:51 by yel-mens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_HPP
-# define POINT_HPP
-# include "Fixed.hpp"
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
+# include "FragTrap.hpp"
 
-class Point
+class DiamondTrap	:	public ScavTrap, public FragTrap
 {
 	private	:
-		const Fixed	_x;
-		const Fixed	_y;
+		std::string	_name;
 
 	public	:
-		Point(void);
-		Point(const float x, const float y);
-		Point(const Point &other);
-		Point	&operator=(const Point &other);
-		~Point(void);
-};
+		DiamondTrap(void);
+		DiamondTrap(const std::string &name);
+		DiamondTrap(const DiamondTrap &other);
+		DiamondTrap	&operator=(const DiamondTrap &other);
+		~DiamondTrap(void);
 
-bool	bsp( Point const a, Point const b, Point const c, Point const point);
+		void	attack(const std::string &name);
+		void	whoAmI(void);
+};
 
 #endif
