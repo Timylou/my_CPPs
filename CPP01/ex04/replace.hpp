@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-mens <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 17:45:25 by yel-mens          #+#    #+#             */
-/*   Updated: 2025/11/20 17:45:28 by yel-mens         ###   ########.fr       */
+/*   Created: 2025/12/23 13:20:03 by yel-mens          #+#    #+#             */
+/*   Updated: 2025/12/23 13:20:05 by yel-mens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
-# include "Weapon.hpp"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 
-class HumanB
-{
-	private	:
-		std::string	name;
-		Weapon		*weapon;
-
-	public	:
-		HumanB(std::string name);
-		HumanB(void);
-
-		void	attack(void) const;
-		void	setWeapon(Weapon &weapon);
-};
-
-#endif
+std::string	ft_replace(std::string content, const std::string &s1, const std::string &s2);

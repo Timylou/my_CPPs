@@ -1,18 +1,18 @@
 NAME	=	replace
 
-CC		=	c++
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -g
+CXX		=	c++
+CXFLAGS	=	-Wall -Werror -Wextra -std=c++98 -g
 
-SRC		=	main.cpp
+SRC		=	main.cpp replace.cpp
 OBJ		=	$(SRC:.cpp=.o)
 
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJ)
-	$(CC) $^ -o $@
+	$(CXX) $^ -o $@
 
 %.o		:	%.c
-	$(CC) $(CFLAGS) $< -c
+	$(CXX) $(CXFLAGS) $< -c
 
 clean	:
 	rm -f $(OBJ)

@@ -10,31 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-
-std::string	ft_replace(std::string content, const std::string &s1, const std::string &s2)
-{
-	std::string	result;
-	size_t		pos;
-	size_t		found;
-
-	if (s1.empty())
-		return (content);
-	pos = 0;
-	found = content.find(s1, pos);
-	while (found != std::string::npos)
-	{
-		result.append(content.substr(pos, found - pos));
-		result.append(s2);
-		pos = found + s1.size();
-		found = content.find(s1, pos);
-	}
-	result.append(content.substr(pos));
-	return (result);
-}
+#include "replace.hpp"
 
 int	main(int argc, char **argv)
 {

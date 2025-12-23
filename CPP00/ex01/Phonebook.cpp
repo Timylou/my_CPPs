@@ -21,9 +21,9 @@ Phonebook::Phonebook(void)
 void	Phonebook::add(void)
 {
 	std::cout << "ADD A NEW CONTACT" << std::endl;
-	contacts[0].newContact(index);
+	contacts[index % 8].newContact(index);
 	std::cout << "NEW CONTACT ADDED WITH SUCCESS" << std::endl;
-	index = (index + 1) % 8;
+	index++;
 }
 
 static int	ft_atoi(char c)
@@ -36,13 +36,14 @@ static void ft_draw_phonebook(Contact contacts[8], int index)
 	std::cout << "|   Index  |First Name| Last Name| Nickname |" << std::endl;
 	std::cout << "--------------------------------------------" << std::endl;
 
-	for (int i = 0; i < index; i++)
+	for (int i = 0; i < index && i < 8; i++)
 		contacts[i].printSummary();
 }
 
 void	Phonebook::search(void)
 {
 	std::string	input;
+	int			i;
 
 	ft_draw_phonebook(this->contacts, this->index);
 	std::cout << "WHAT IS THE INDEX OF THE CONTACT ?" << std::endl;
@@ -57,5 +58,6 @@ void	Phonebook::search(void)
 		else
 			break;
 	}
-	contacts[ft_atoi(input[0])].print();
+	i = ft_atoi(input[0]);
+	contacts[i].print();
 }
