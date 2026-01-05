@@ -28,6 +28,18 @@ Point	&Point::operator=(const Point &other)
 	return (*this);
 }
 
+/************************ GETTER *********************/
+
+Fixed const	Point::getX() const
+{
+	return (this->_x);
+}
+
+Fixed const	Point::getY() const
+{
+	return (this->_y);
+}
+
 /********************** DESTRUCTOR *******************/
 
 Point::~Point(void)	{}

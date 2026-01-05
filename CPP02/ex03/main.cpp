@@ -11,28 +11,19 @@
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include "Point.hpp"
 #include <iostream>
 
 int main( void )
 {
-	Fixed a(12);
-	Fixed b( Fixed( 5.05f ) * Fixed( 2 ) );
+	Point	a(1.0f, 0.0f);
+	Point	b(0.0f, 1.0f);
+	Point	c(2.0f, 1.0f);
+	Point	p(1.0f, 0.5f);
 
-	std::cout << "a : " << a << std::endl
-			  << "b : " << b << std::endl
-			  << std::endl
-			  << "a + b : " << a + b << std::endl
-			  << "a - b : " << a - b << std::endl
-			  << "a * b : " << a * b << std::endl
-			  << "a / b : " << a / b << std::endl
-			  << std::endl
-			  << "++a : " << ++a << std::endl
-			  << "a++ : " << a++ << std::endl
-			  << "--b : " << --b << std::endl
-			  << "b-- : " << b-- << std::endl
-			  << std::endl
-			  << "max(a, b) : " << Fixed::max(a, b) << std::endl
-			  << "min(a, b) : " << Fixed::min(a, b) << std::endl;
-	
+	if (bsp(a, b, c, p))
+		std::cout << "point is in triangle" << std::endl;
+	else
+		std::cout << "point is out triangle" << std::endl;
 	return 0;
 }
