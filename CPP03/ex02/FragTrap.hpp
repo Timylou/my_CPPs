@@ -13,6 +13,7 @@
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 # include "ScavTrap.hpp"
+# include <iostream>
 
 class FragTrap	:	public ClapTrap
 {
