@@ -6,15 +6,13 @@ CXFLAGS	=	-Wall -Wextra -Werror -g
 SRC		=	main.cpp Materia.cpp Character.cpp Ice.cpp Cure.cpp
 OBJ		=	$(SRC:.cpp=.o)
 
-INCLUDE	=	-Iinclude
-
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJ)
 	$(CXX) $^ -o $@
 
-%.o		:	src/%.cpp
-	$(CXX) $(INCLUDE) $(CXFLAGS) $< -c
+%.o		:	%.cpp
+	$(CXX) $(CXFLAGS) $< -c
 
 clean	:
 	rm -f $(OBJ)

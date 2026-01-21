@@ -44,7 +44,9 @@ Character	&Character::operator=(Character const &other)
 		{
 			if (this->materia[i])
 				delete (this->materia[i]);
-			this->materia[i] = (other.materia[i])->clone();
+			this->materia[i] = NULL;
+			if (other.materia[i])
+				this->materia[i] = (other.materia[i])->clone();
 		}
 	}
 	return (*this);
