@@ -1,9 +1,9 @@
-NAME	=	polymorphism
+NAME	=	brain
 
 CXX		=	c++
 CXFLAGS	=	-Wall -Werror -Wextra -g
 
-SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp brain.cpp
 OBJ		=	$(SRC:.cpp=.o)
 
 

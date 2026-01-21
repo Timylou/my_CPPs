@@ -1,19 +1,20 @@
-NAME	=	polymorphism
+NAME	=	interface
 
 CXX		=	c++
-CXFLAGS	=	-Wall -Werror -Wextra -g
+CXFLAGS	=	-Wall -Wextra -Werror -g
 
-SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRC		=	main.cpp Materia.cpp Character.cpp Ice.cpp Cure.cpp
 OBJ		=	$(SRC:.cpp=.o)
 
+INCLUDE	=	-Iinclude
 
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJ)
 	$(CXX) $^ -o $@
 
-%.o		:	%.cpp
-	$(CXX) $(CXFLAGS) $^ -c
+%.o		:	src/%.cpp
+	$(CXX) $(INCLUDE) $(CXFLAGS) $< -c
 
 clean	:
 	rm -f $(OBJ)
