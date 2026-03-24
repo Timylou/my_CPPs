@@ -6,7 +6,7 @@
 /*   By: yel-mens <yel-mens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 14:58:34 by yel-mens          #+#    #+#             */
-/*   Updated: 2026/03/24 09:42:57 by yel-mens         ###   ########.fr       */
+/*   Updated: 2026/03/24 14:54:31 by yel-mens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat(void)	:	_name("Nameless"), _grade(150) {}
 Bureaucrat::Bureaucrat(Bureaucrat const &other)	:	_name(other.getName()), _grade(other.getGrade()) {}
 
 /********************* OPERATORS ********************/
-
+	
 Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &other)
 {
 	if (this != &other)
@@ -45,7 +45,7 @@ std::ostream	&operator<<(std::ostream &os, Bureaucrat const &rSym)
 
 Bureaucrat::~Bureaucrat(void)	{}
 
-/********************* GETTER ***********************/
+/********************* GETTERS **********************/
 
 std::string	Bureaucrat::getName(void) const	{return (this->_name);}
 
@@ -65,6 +65,35 @@ void	Bureaucrat::decrement(void)
 	if (this->getGrade() == 150)
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade++;
+}
+
+void	Bureaucrat::signForm(AForm &form)
+{
+	if (form.isSigned())
+	{
+		std::cout << this->getName() << " couldn’t sign "
+				  << form.getName() << " because it's already signed." << std::endl;
+		return ;
+	}
+	form.beSigned(*this);
+	if (form.getGradeToSign() < this->getGrade())
+		std::cout << this->getName() << " couldn’t sign "
+				  << form.getName() << " because grade is low." << std::endl;
+	else
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+}
+
+void	Bureaucrat::executeForm(const AForm &form) const
+{
+	if (!form.isSigned())
+		std::cout << form.getName() << " is not signed yet" << std::endl;
+	else if (this->getGrade() > form.getGradeToExec())
+		throw (AForm::GradeTooLowException());
+	else
+	{
+		form.execute(*this);
+		std::cout << std::endl << this->getName() << " executed " << form.getName() << std::endl;
+	}
 }
 
 /******************** EXCEPTIONS ********************/
